@@ -18,7 +18,7 @@ read choice
 if [ $choice -eq 1 ]; then
       echo ""
       echo "Downloading NadekoBot, please wait."
-      wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/1.9/nadeko_installer_latest.sh && bash "$root/nadeko_installer_latest.sh"
+      wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/1.9/nadeko_installer_latest.sh && bash "$root/nmenu.sh"
       echo ""
       bash "$root/linuxAIO.sh"
 else
@@ -40,7 +40,7 @@ else
                         if [ $choice -eq 4 ]; then
                         	echo ""
                          	echo "Getting Auto-Installer for (Ubuntu only)"
-                         	wget https://github.com/HokutoChen/NadekoScript/blob/547edc55a5370fe379cea2df3b8cce8d0fb402a0/nadeko_pi_auto_installer.sh && bash "$root/nadeko_pi_auto_installer.sh"
+                         	wget https://github.com/HokutoChen/NadekoScript/blob/547edc55a5370fe379cea2df3b8cce8d0fb402a0/n-menu.sh && bash "$root/nadeko_pi_auto_installer.sh"
                           	echo ""
 			  	echo "Welcome Back..."
 			     	sleep 2s
