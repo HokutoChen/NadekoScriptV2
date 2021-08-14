@@ -5,7 +5,7 @@ if [ "$BITS" = 32 ]; then
         echo -e "Your system architecture is $ARCH which is unsupported to run Microsoft .NET Core SDK. \nYour OS: $OS \nOS Version: $VER"
         echo
         printf "\e[1;31mPlease check the NadekoBot self-hosting guide for alternatives.\e[0m\n"
-        rm nadeko_pi_auto_installer.sh
+        rm n-menu.sh
 	      exit 1
 fi        
 
@@ -53,7 +53,7 @@ if [ $choice -eq 1 ]; then
      export PATH=$PATH:/usr/share/dotnet-arm64
         
      echo "Installing Git and Redis"
-     sudo apt0get install git redis-server -y
+     sudo apt-get install git redis-server -y
         
      echo "Installing music Prerequisites..."
      sudo add-apt-repository ppa:chris-lea/libsodium -y
@@ -77,6 +77,6 @@ read -n 1 -s -p "Press any key to continue..."
 sleep 2
 
 cd "$root"
-rm "$root/nadeko_pi_auto_installer.sh"
+rm "$root/n-menu.sh"
 
 exit 0
