@@ -75,6 +75,6 @@ while [ $choice -eq 9 ]; do
 	fi
 done
 
-cd "$root"
-rm "$root/n-menu.sh"
+cd 
+rm $HOME/n-menu.sh
 exit 0
