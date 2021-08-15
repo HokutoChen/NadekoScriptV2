@@ -22,6 +22,7 @@ echo "4. Run NadekoBot with Auto Restart"
 echo "5. Set up credentials.json (If NadekoBot is downloaded)"
 echo "6. Exit"
 echo -n "Type in a number matching the option and press ENTER"
+echo ""
 
 while [ $choice -eq 9 ]; do
 read choice
