@@ -80,7 +80,45 @@ if [ "$OS" = "Ubuntu" ]; then
     fi
 fi
 
-echo "THIS INSTALLER WILL ONLY WORK ON UBUNTU"
+if [ "$OS" = "LinuxMint" ]; then
+    SVER=$( echo $VER | grep -oP "[0-9]+" | head -1 )
+    supported_ver=("18" "17" "2")
+
+    if [[ " ${supported_ver[@]} " =~ " ${SVER} " ]]; then        
+        supported=1
+    else
+        supported=0
+    fi
+fi
+
+if [ "$supported" = 0 ]; then
+    echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
+    printf "\e[1;31mContact NadekoBot's support on Discord with screenshot.\e[0m\n"
+    rm n-prereq.sh
+    exit 1
+fi
+
+if [ "$OS" = "Linux" ]; then
+    echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact NadekoBot's support on Discord with screenshot."
+    rm n-prereq.sh
+    exit 1
+fi
+
+echo "This installer will download all of the required packages for NadekoBot. It will use about 350MB of space. This might take awhile to download if you do not have a good internet connection.\n"
+echo -e "Would you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
+
+while true; do
+    read -p "[y/n]: " yn
+    case $yn in
+        [Yy]* ) clear; echo Running NadekoBot Auto-Installer; sleep 2; break;;
+        [Nn]* ) echo Quitting...; rm n-prereq.sh && exit;;
+        * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+    esac
+done
+
+echo ""
+
+
 
 echo "This installer will download all of the required packages for NadekoBot. It will use about 350MB of space. This might take awhile to download if you do not have a good internet connection.\n"
 echo -e "Your OS: $OS \nOS Version: $VER \nArchitecture: $ARCH \nWould you like to continue?"
