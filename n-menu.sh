@@ -23,7 +23,7 @@ echo "5. Set up credentials.json (If NadekoBot is downloaded)"
 echo "6. Exit"
 echo -n "Type in a number matching the option and press ENTER"
 
-while [ $choice -eq 9]; do
+while [ $choice -eq 9 ]; do
 read choice
       	echo "1. Install Prerequisites"
       	echo "2. Download NadekoBot"
