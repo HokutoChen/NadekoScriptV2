@@ -38,6 +38,6 @@ dotnet build src/NadekoBot/NadekoBot.csproj -c Release -o output/
 echo ""
 echo "Building done."
 
-cd "$root"
-rm "$root/n-install.sh"
+cd 
+rm $HOME/n-install.sh
 exit 0
