@@ -117,6 +117,6 @@ echo "{
 echo Credentials setup completed.
 sleep 5
 clear
-cd "$root"
-rm "$HOME/n-credentials_setup.sh"
+cd 
+rm $HOME/n-credentials_setup.sh
 exit 0
