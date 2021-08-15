@@ -10,11 +10,11 @@ else
 	exit 1
 fi
 
-cd "$HOME/nadekobot/output"
+cd $HOME/nadekobot/output
 echo "Running NadekoBot. Please wait."
 dotnet run NadekoBot.dll
 echo "Done"
 
-cd "$root"
-rm "$root/n-arn.sh"
+cd 
+rm $HOME/n-arn.sh
 exit 0
