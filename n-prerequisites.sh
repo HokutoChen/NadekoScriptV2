@@ -178,6 +178,6 @@ echo "NadekoBot Prerequisities Installation completed"
 read -n 1 -s -p "Press any key to continue..."
 sleep 2
 
-cd "$root"
-rm "$root/n-prerequisites.sh"
+cd 
+rm $HOME/n-prerequisites.sh
 exit 0
