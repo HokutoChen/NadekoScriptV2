@@ -1,8 +1,6 @@
 #tester
 root=$(pwd)
 clear
-echo ""
-echo
 echo -e "Let's begin creating a new credentials.json file if you are about to run the NadekoBot for the first time. \n \nPlease read JSON Explanations in the guide... \n \nPress [Y] when you are ready to continue or [N] to exit."
 
 while true; do
