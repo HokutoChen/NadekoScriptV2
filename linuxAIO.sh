@@ -1,4 +1,5 @@
 #!/bin/sh
+clear
 echo ""
 echo "Welcome to NadekoBot pi installer. Downloading the latest installer..."
 root=$(pwd)
