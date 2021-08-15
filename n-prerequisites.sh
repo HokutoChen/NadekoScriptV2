@@ -136,5 +136,4 @@ sleep 2
 
 cd "$root"
 rm "$root/n-prerequisites.sh"
-
 exit 0
