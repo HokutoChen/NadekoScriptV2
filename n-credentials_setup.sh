@@ -121,7 +121,7 @@ echo "{
   "Db": null,
   "TotalShards": 1
 }" | cat - >> credentials.json
-echo Credentials setup completed.
+echo "Credentials setup completed."
 sleep 5
 clear
 cd 
