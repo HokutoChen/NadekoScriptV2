@@ -15,8 +15,16 @@ script_run="n-run.sh"
 script_arn="n-arn.sh"
 script_credentials="n-credentials_setup.sh"
 
-while [ $choice -eq 9]; do
+echo "1. Install Prerequisites"
+echo "2. Download NadekoBot"
+echo "3. Run NadekoBot"
+echo "4. Run NadekoBot with Auto Restart"
+echo "5. Set up credentials.json (If NadekoBot is downloaded)"
+echo "6. Exit"
+echo -n "Type in a number matching the option and press ENTER"
 
+while [ $choice -eq 9]; do
+read choice
       	echo "1. Install Prerequisites"
       	echo "2. Download NadekoBot"
       	echo "3. Run NadekoBot"
