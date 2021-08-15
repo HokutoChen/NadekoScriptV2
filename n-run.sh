@@ -15,6 +15,6 @@ echo "Running NadekoBot. Please wait."
 dotnet run NadekoBot.dll
 echo "Done"
 
-cd "$root"
-rm "$root/n-run.sh"
+cd 
+rm $HOME/n-run.sh
 exit 0
