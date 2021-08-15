@@ -2,7 +2,7 @@
 echo ""
 echo "Welcome to NadekoBot. Downloading the latest installer..."
 root=$(pwd)
-wget -N https://raw.githubusercontent.com/HokutoChen/NadekoScript/raw/main/n-menu.sh
+wget -N https://github.com/HokutoChen/NadekoScript/raw/main/n-menu.sh
 
 bash n-menu.sh
 cd "$root"
