@@ -1,5 +1,6 @@
 #!/bin/sh
-echo -e "Welcome to Nadekobot"
+clear
+echo "Welcome to Nadekobot"
 echo "This is the pi installer"
 echo "This installer will only work on Ubuntu"
 root=$(pwd)
