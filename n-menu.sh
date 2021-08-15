@@ -16,6 +16,7 @@ script_arn="n-arn.sh"
 script_credentials="n-credentials_setup.sh"
 
 while [ $choice -eq 9]; do
+
       	echo "1. Install Prerequisites"
       	echo "2. Download NadekoBot"
       	echo "3. Run NadekoBot"
