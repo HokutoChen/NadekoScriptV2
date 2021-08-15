@@ -14,7 +14,7 @@ while true; do
   esac
 done
 clear
-cd "$HOME/NadekoBot/src/NadekoBot"
+cd $HOME/nadekobot/src/NadekoBot
 mv credentials.json credentials.json.old
 
 echo "Please enter your bot token \(It is not bot secret, it should be ~59 characters long.\):"
@@ -118,5 +118,5 @@ echo Credentials setup completed.
 sleep 5
 clear
 cd "$root"
-rm "$root/n-install.sh"
+rm "$root/n-credentials_setup.sh"
 exit 0
