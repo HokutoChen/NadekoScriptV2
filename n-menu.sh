@@ -1,79 +1,86 @@
 #tester
 echo "Welcome to Nadekobot"
 echo "This is the pi installer"
+echo "This installer will only work on Ubuntu"
 root=$(pwd)
 echo ""
 choice=9
-      echo "1. Download NadekoBot"
-      echo "2. Run Nadeko (Normally)"
-      echo "3. N/A"
-      echo "4. Auto-Install Prerequisites (Ubuntu only)"
-      echo "5. Set up credentials.json (If NadekoBot is downloaded)"
-      echo "6. N/A"
-      echo "7. N/A"
-      echo "8. Exit"
-      echo -n "Choose N/A'
-while [ $choice -eq 9 ; do
-read choice
-if [ $choice -eq 1 ]; then
-      echo ""
-      echo "Downloading NadekoBot, please wait."
-      wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/1.9/nadeko_installer_latest.sh && bash "$root/nmenu.sh"
-      echo ""
-      bash "$root/linuxAIO.sh"
-else
-            if [ $choice -eq 2 ]; then
-                  echo ""
-                  echo "Running Nadeko Normally, if you are running this to check Nadeko, use .die command on discord to stop Nadeko."
-			            wget -N https://github.com/Kwoth/NadekoBot-BashScript/raw/1.9/nadeko_run.sh && bash "$root/nadeko_run.sh"
-		            	echo ""
-                  echo "Welcome back to NadekoBot."
-			            sleep 2s
-			            bash "$root/linuxAIO.sh"
-            else
-                  if [ $choice -eq 3 ]; then
-                        echo ""
-                        echo "Nothing to see here"
-                        sleep 2s
-                        bash "$root/linuxAIO.sh"
-                  else
-                        if [ $choice -eq 4 ]; then
-                        	echo ""
-                         	echo "Getting Auto-Installer for (Ubuntu only)"
-                         	wget https://github.com/HokutoChen/NadekoScript/blob/547edc55a5370fe379cea2df3b8cce8d0fb402a0/n-menu.sh && bash "$root/nadeko_pi_auto_installer.sh"
-                          	echo ""
-			  	echo "Welcome Back..."
-			     	sleep 2s
-			     	bash "$root/linuxAIO.sh"
-			else
-				if [ $choice -eq 5 ]; then
-					echo ""
-					echo
-echo -e "Let's begin creating a new credentials.json file if you are about to run the NadekoBot for the first time. \n \nPlease read JSON Explanations in the guide... \n \nPress [Y] when you are ready to continue or [N] to exit."
-while true; do
-    read -p "[y/n]: " yn
-    case $yn in
-        [Yy]* ) clear; break;;
-        [Nn]* ) echo Exiting...; exit;;
-        * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
-    esac
-done
-clear
-cd "$root/NadekoBot/src/NadekoBot"
-mv credentials.json credentials.json.old
 
-echo Please enter your bot client ID:
-echo ""
-read clientid
-echo ""
-echo Alright saved \'$clientid\' as your client ID.
-echo ""
-echo "----------"
-echo ""
+base_url="https://gitlab.com/Kwoth/nadeko-bash-installer/-/raw/master"
 
-echo Please enter your bot token \(It is not bot secret, it should be ~59 characters long.\):
-echo ""
-read token
+script_menu="n-menu.sh"
+script_prerequisites="n-prerequisites.sh"
+script_install="n-install.sh"
+script_run="n-run.sh"
+script_arn="n-arn.sh"
+
+while [ $choice -eq 9]; do
+      	echo "1. Install Prerequisites"
+      	echo "2. Download NadekoBot"
+      	echo "3. Run NadekoBot"
+	echo "4. Run NadekoBot with Auto Restart"
+      	echo "5. Set up credentials.json (If NadekoBot is downloaded)"
+      	echo "6. Exit"
+      	echo -n "Type in a number matching the option and press ENTER"
+      	echo ""
+      	read choice
+      
+
+	if [ $choice -eq 1 ]; then
+      		echo ""
+		echo "Downloading the prerequisites installer script"
+		wget -N "$base_url/$script_prerequisites" && bash "$root/$script_prerequisites"
+		echo ""
+		choice=9
+	elif [ $choice -eq 2 ]; then
+                echo ""
+		echo "Downloading the NadekoBot installer script"
+		wget -N "$base_url/$script_install" && bash "$root/$script_install"
+		echo ""
+		sleep 2s
+		choice=9
+	elif [ $choice -eq 3 ]; then
+                echo ""
+		echo "Downloading the NadekoBot run script"
+		wget -N "$base_url/$script_run" && bash "$root/$script_run"
+		echo ""
+		sleep 2s
+		bash "$root/linuxAIO.sh"
+	elif [ $choice -eq 4 ]; then
+              	echo ""
+		echo "Downloading the NadekoBot run and auto restart script"
+		wget -N "$base_url/$script_arn" && bash "$root/$script_arn"
+		echo ""
+		sleep 2s
+		bash "$root/linuxAIO.sh"
+	elif [ $choice -eq 5 ]; then
+		echo ""
+		echo
+		echo -e "Let's begin creating a new credentials.json file if you are about to run the NadekoBot for the first time. \n \nPlease read JSON Explanations in the guide... \n \nPress [Y] when you are ready to continue or [N] to exit."
+		while true; do
+    			read -p "[y/n]: " yn
+    			case $yn in
+        		[Yy]* ) clear; break;;
+        		[Nn]* ) echo Exiting...; exit;;
+        		* ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+    			esac
+		done
+		clear
+		cd "$root/NadekoBot/src/NadekoBot"
+		mv credentials.json credentials.json.old
+
+		echo Please enter your bot client ID:
+		echo ""
+		read clientid
+		echo ""
+		echo Alright saved \'$clientid\' as your client ID.
+		echo ""
+		echo "----------"
+		echo ""
+
+		echo Please enter your bot token \(It is not bot secret, it should be ~59 characters long.\):
+		echo ""
+		read token
 echo ""
 echo Alright saved \'$token\' as your bot\'s token.
 echo ""
