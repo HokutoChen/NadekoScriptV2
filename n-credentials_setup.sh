@@ -17,6 +17,15 @@ done
 cd $HOME/nadekobot/src/NadekoBot
 mv credentials.json credentials.json.old
 
+echo Please enter your bot client ID:
+echo ""
+read clientid
+echo ""
+echo Alright saved '$clientid' as your client ID.
+echo ""
+echo "----------"
+echo ""
+
 echo "Please enter your bot token \n(It is not bot secret, it should be ~59 characters long.):"
 echo ""
 read token
