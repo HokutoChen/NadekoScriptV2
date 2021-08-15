@@ -23,64 +23,20 @@ else
     exit 1
 fi
 
-tempdir=NadekoInstall_Temp
-
-rm -r "$tempdir" 1>/dev/null 2>&1
-mkdir "$tempdir"
-cd "$tempdir"
-
-# todo data handling
 echo ""
 echo "Downloading NadekoBot, please wait..."
-git clone -b v3 --recursive --depth 1 https://gitlab.com/Kwoth/NadekoBot
+# todo data handling
+git clone https://gitlab.com/kwoth/nadekobot -b v3 --depth 1
+cd nadekobot
 echo ""
 echo "NadekoBot downloaded."
 
-echo ""
-echo "Download Done"
-
-echo ""
-echo "Building Nadekobot"
+ehco ""
+echo "Building NadekoBot"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 dotnet build src/NadekoBot/NadekoBot.csproj -c Release -o output/
 echo ""
-echo "Building done. Moving Nadeko"
-
-cd "$root"
-
-if [ ! -d NadekoBot ]
-then
-    mv "$tempdir"/NadekoBot NadekoBot
-else
-    rm -rf NadekoBot_old 1>/dev/null 2>&1
-    mv -fT NadekoBot NadekoBot_old 1>/dev/null 2>&1
-    mv "$tempdir"/NadekoBot NadekoBot
-    cp -f "$root/NadekoBot_old/src/NadekoBot/credentials.json" "$root/NadekoBot/src/NadekoBot/credentials.json" 1>/dev/null 2>&1
-    echo ""
-    echo "credentials.json copied to the new version"
-    cp -RT "$root/NadekoBot_old/src/NadekoBot/bin/" "$root/NadekoBot/src/NadekoBot/bin/" 1>/dev/null 2>&1
-    cp -RT "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.1/data/NadekoBot.db" 1>/dev/null 2>&1
-	cp -RT "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.1/data/NadekoBot.db" 1>/dev/null 2>&1
-    cp -RT "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.1/data/NadekoBot.db" 1>/dev/null 2>&1
-    mv -f "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot_old.db" 1>/dev/null 2>&1
-	mv -f "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot_old.db" 1>/dev/null 2>&1
-    mv -f "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.0/data/NadekoBot_old.db" 1>/dev/null 2>&1
-    echo ""
-	mv -f "$root/NadekoBot_old/src/NadekoBot/data/aliases.yml" "$root/NadekoBot_old/src/NadekoBot/data/aliases_old.yml" 1>/dev/null 2>&1
-	rm -rf "$root/NadekoBot_old/src/NadekoBot/data/strings_old" 1>/dev/null 2>&1
-	mv -f "$root/NadekoBot_old/src/NadekoBot/data/strings" "$root/NadekoBot_old/src/NadekoBot/data/strings_old" 1>/dev/null 2>&1
-    echo "Database copied to the new version"
-    cp -RT "$root/NadekoBot_old/src/NadekoBot/data/" "$root/NadekoBot/src/NadekoBot/data/" 1>/dev/null 2>&1
-    echo ""
-    echo "Other data copied to the new version"
-fi
-
-rm -r "$tempdir"
-echo ""
-echo "Installation Complete."
-#cd nadekobot
-
-#dotnet build src/NadekoBot/NadekoBot.csproj -c Release -o output/
+echo "Building done."
 
 cd "$root"
 rm "$root/n-install.sh"
