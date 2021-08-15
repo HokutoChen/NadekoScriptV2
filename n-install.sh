@@ -42,7 +42,7 @@ echo "Download Done"
 echo ""
 echo "Building Nadekobot"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-dotnet build -- configuration Release
+dotnet build src/NadekoBot/NadekoBot.csproj -c Release -o output/
 echo ""
 echo "Building done. Moving Nadeko"
 
