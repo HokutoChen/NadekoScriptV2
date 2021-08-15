@@ -1,6 +1,62 @@
 #tester
 root=$(pwd)
 echo ""
+
+function detect_OS_ARCH_VER_BITS {
+    ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+    if [ -f /etc/lsb-release ]; then
+        . /etc/lsb-release
+        if [ "$DISTRIB_ID" = "" ]; then
+            OS=$(uname -s)
+            VER=$(uname -r)
+        else
+            OS=$DISTRIB_ID
+            VER=$DISTRIB_RELEASE
+        fi
+    elif [ -f /etc/debian_version ]; then
+        OS=Debian  # XXX or Ubuntu??
+        VER=$(cat /etc/debian_version)
+        SVER=$( cat /etc/debian_version | grep -oP "[0-9]+" | head -1 )
+    elif [ -f /etc/centos-release ]; then
+        OS=CentOS
+        VER=$( cat /etc/centos-release | grep -oP "[0-9]+" | head -1 )
+    else
+        OS=$(uname -s)
+        VER=$(uname -r)
+    fi
+    case $(uname -m) in
+    x86_64)
+        BITS=64
+        ;;
+    i*86)
+        BITS=32
+        ;;
+    armv*)
+        BITS=32
+        ;;
+    *)
+        BITS=?
+        ;;
+    esac
+    case $(uname -m) in
+    x86_64)
+        ARCH=x64  # or AMD64 or Intel64 or whatever
+        ;;
+    i*86)
+        ARCH=x86  # or IA32 or Intel32 or whatever
+        ;;
+    *)
+        # leave ARCH as-is
+        ;;
+    esac
+}
+
+declare OS ARCH VER BITS
+
+detect_OS_ARCH_VER_BITS
+
+export OS ARCH VER BITS
+
 if [ "$BITS" = 32 ]; then
         echo -e "Your system architecture is $ARCH which is unsupported to run Microsoft .NET Core SDK. \nYour OS: $OS \nOS Version: $VER"
         echo
@@ -24,15 +80,23 @@ if [ "$OS" = "Ubuntu" ]; then
     fi
 fi
 
+echo "THIS INSTALLER WILL ONLY WORK ON UBUNTU"
 
-echo "Your OS: $OS \nOS Version: $VER"        
-echo "If you are running ubuntu, enter 1 to continue"
-echo "If you are not running ubuntu, enter 0 to exit"
-if [ $choice -eq 1 ]; then
-     echo ""
-     echo "This installer will download all of the required packages for NadekoBot. It will use about N/A MB of space. This might take awhile to download if you do not have a good internet connection."
-     echo ""
-     read -n 1 --s -p "Press any key to continue..."
+echo "This installer will download all of the required packages for NadekoBot. It will use about 350MB of space. This might take awhile to download if you do not have a good internet connection.\n"
+echo -e "Your OS: $OS \nOS Version: $VER \nArchitecture: $ARCH \nWould you like to continue?"
+
+while true; do
+    read -p "[y/n]: " yn
+    case $yn in
+        [Yy]* ) clear; echo Running NadekoBot Auto-Installer; sleep 2; break;;
+        [Nn]* ) echo Quitting...; rm n-prereq.sh && exit;;
+        * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+    esac
+done
+
+echo ""
+
+if [ "$OS" = "Ubuntu" ]; then
      echo ""
      echo "Preparing for install..."
         
@@ -65,18 +129,12 @@ if [ $choice -eq 1 ]; then
 fi
 
         
-        
-else
-    if [ $choice -eq 0 ]; then
-    exit 0
-fi
-
 echo
-echo "NadekoBot Prerequisities Instllation
+echo "NadekoBot Prerequisities Instllation completed"
 read -n 1 -s -p "Press any key to continue..."
 sleep 2
 
 cd "$root"
-rm "$root/n-menu.sh"
+rm "$root/n-prerequisites.sh"
 
 exit 0
