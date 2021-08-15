@@ -19,7 +19,7 @@ echo Please enter your bot client ID:
 echo ""
 read clientid
 echo ""
-echo Alright saved '$clientid' as your client ID.
+echo "Alright saved '$clientid' as your client ID."
 echo ""
 echo "----------"
 echo ""
@@ -46,7 +46,7 @@ echo "Please enter Google API key \n(Refer to the guide.):"
 echo ""
 read googleapi
 echo ""
-echo "Alright saved '$googleapi' as your bot's Google API Key."
+echo "Saved '$googleapi' as your bot's Google API Key."
 echo ""
 echo "----------"
 echo ""
@@ -55,7 +55,7 @@ echo -e "Please enter Mashape Key or Just Press [Enter Key] to skip. (optional) 
 echo ""
 read mashapekey
 echo ""
-echo Alright saved '$mashapekey' as your bot\'s Mashape Key.
+echo "Saved \'$mashapekey'\ as your bot's Mashape Key.
 echo ""
 echo "----------"
 echo ""
@@ -64,7 +64,7 @@ echo -e "Please enter OSU API Key or Just Press [Enter Key] to skip. (optional) 
 echo ""
 read osu
 echo ""
-echo Alright saved '$osu' as your bot's OSU API Key.
+echo "Saved \'$osu' \as your bot's OSU API Key.
 echo ""
 echo "----------"
 echo ""
@@ -73,7 +73,7 @@ echo -e "Please enter Cleverbot API Key or Just Press [Enter Key] to skip. (opti
 echo ""
 read cleverbot
 echo ""
-echo Alright saved '$cleverbot' as your bot\'s Cleverbot API Key.
+echo "Saved \'$cleverbot'\ as your bot's Cleverbot API Key.
 echo ""
 echo "----------"
 echo ""
@@ -82,7 +82,7 @@ echo -e "Please enter Twitch Client ID or Just Press [Enter Key] to skip. (optio
 echo ""
 read twitchcid
 echo ""
-echo Alright saved '$twitchcid' as your bot's Twitch Client ID.
+echo "Saved '$twitchcid' as your bot's Twitch Client ID.
 echo ""
 echo "----------"
 echo ""
@@ -91,7 +91,7 @@ echo -e "Please enter Location IQ Api Key or Just Press [Enter Key] to skip. (op
 echo ""
 read locationiqapi
 echo ""
-echo Alright saved '$locationiqapi' as your bot's Location IQ API Key.
+echo "Saved '$locationiqapi' as your bot's Location IQ API Key.
 echo ""
 echo "----------"
 echo ""
@@ -100,13 +100,13 @@ echo -e "Please enter Timezone DB Api Key or Just Press [Enter Key] to skip. (op
 echo ""
 read timedbapi
 echo ""
-echo Alright saved '$timedbapi' as your bot's Timezone DB API Key.
+echo "Saved '$timedbapi' as your bot's Timezone DB API Key.
 echo ""
 echo "----------"
 echo ""
 
 echo "{
-  "ClientId": $clientid,
+  "ClientId": "$clientid",
   "Token": "$token",
   "OwnerIds": [
     $ownerid
