@@ -105,7 +105,7 @@ if [ "$OS" = "Ubuntu" ]; then
         
      echo "Installing dotnet"
      cd /usr/share
-     kdir dotnet-arm64
+     mkdir dotnet-arm64
      cd /usr/share/dotnet-arm64
         
      wget https://download.visualstudio.microsoft.com/download/pr/4d323232-ffcc-4c09-a043-a36b554c883e/096822e81dc29383b649cd015d1ff99a/dotnet-sdk-5.0.400-linux-arm64.tar.gz
@@ -130,7 +130,7 @@ fi
 
         
 echo
-echo "NadekoBot Prerequisities Instllation completed"
+echo "NadekoBot Prerequisities Installation completed"
 read -n 1 -s -p "Press any key to continue..."
 sleep 2
 
