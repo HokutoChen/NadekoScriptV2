@@ -17,29 +17,29 @@ done
 cd $HOME/nadekobot/src/NadekoBot
 mv credentials.json credentials.json.old
 
-echo "Please enter your bot token \(It is not bot secret, it should be ~59 characters long.\):"
+echo "Please enter your bot token \n(It is not bot secret, it should be ~59 characters long.):"
 echo ""
 read token
 echo ""
-echo "Alright saved \'$token\' as your bot\'s token."
+echo "Saved '$token' as your bot's token."
 echo ""
 echo "----------"
 echo ""
 
-echo "Please enter your own ID \(Refer to the guide, it will be bot\'s owner ID.\):"
+echo "Please enter your own ID \n(Refer to the guide, it will be bot's owner ID.):"
 echo ""
 read ownerid
 echo ""
-echo "Alright saved \'$ownerid\' as owner\'s ID."
+echo "Saved '$ownerid' as owner's ID."
 echo ""
 echo "----------"
 echo ""
 
-echo "Please enter Google API key \(Refer to the guide.\):"
+echo "Please enter Google API key \n(Refer to the guide.):"
 echo ""
 read googleapi
 echo ""
-echo "Alright saved \'$googleapi\' as your bot\'s Google API Key."
+echo "Alright saved '$googleapi' as your bot's Google API Key."
 echo ""
 echo "----------"
 echo ""
@@ -48,7 +48,7 @@ echo -e "Please enter Mashape Key or Just Press [Enter Key] to skip. (optional) 
 echo ""
 read mashapekey
 echo ""
-echo Alright saved \'$mashapekey\' as your bot\'s Mashape Key.
+echo Alright saved '$mashapekey' as your bot\'s Mashape Key.
 echo ""
 echo "----------"
 echo ""
@@ -57,16 +57,16 @@ echo -e "Please enter OSU API Key or Just Press [Enter Key] to skip. (optional) 
 echo ""
 read osu
 echo ""
-echo Alright saved \'$osu\' as your bot\'s OSU API Key.
+echo Alright saved '$osu' as your bot's OSU API Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Cleverbot API Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
+echo -e "Please enter Cleverbot API Key or Just Press [Enter Key] to skip. (optional) \n Refer to the JSON Explanations guide:"
 echo ""
 read cleverbot
 echo ""
-echo Alright saved \'$cleverbot\' as your bot\'s Cleverbot API Key.
+echo Alright saved '$cleverbot' as your bot\'s Cleverbot API Key.
 echo ""
 echo "----------"
 echo ""
@@ -75,7 +75,7 @@ echo -e "Please enter Twitch Client ID or Just Press [Enter Key] to skip. (optio
 echo ""
 read twitchcid
 echo ""
-echo Alright saved \'$twitchcid\' as your bot\'s Twitch Client ID.
+echo Alright saved '$twitchcid' as your bot's Twitch Client ID.
 echo ""
 echo "----------"
 echo ""
@@ -84,7 +84,7 @@ echo -e "Please enter Location IQ Api Key or Just Press [Enter Key] to skip. (op
 echo ""
 read locationiqapi
 echo ""
-echo Alright saved \'$locationiqapi\' as your bot\'s Location IQ API Key.
+echo Alright saved '$locationiqapi' as your bot's Location IQ API Key.
 echo ""
 echo "----------"
 echo ""
@@ -93,26 +93,26 @@ echo -e "Please enter Timezone DB Api Key or Just Press [Enter Key] to skip. (op
 echo ""
 read timedbapi
 echo ""
-echo Alright saved \'$timedbapi\' as your bot\'s Timezone DB API Key.
+echo Alright saved '$timedbapi' as your bot's Timezone DB API Key.
 echo ""
 echo "----------"
 echo ""
 
 echo "{
-  \"ClientId\": $clientid,
-  \"Token\": \"$token\",
-  \"OwnerIds\": [
+  "ClientId": $clientid,
+  "Token": "$token",
+  "OwnerIds": [
     $ownerid
   ],
-  \"GoogleApiKey\": \"$googleapi\",
-  \"MashapeKey\": \"$mashapekey\",
-  \"OsuApiKey\": \"$osu\",
-  \"CleverbotApiKey\": \"$cleverbot\",
-  \"TwitchClientId\": \"$twitchcid\",
-  \"LocationIqApiKey\": \"$locationiqapi\",
-  \"TimezoneDbApiKey\": \"$timedbapi\",
-  \"Db\": null,
-  \"TotalShards\": 1
+  "GoogleApiKey": "$googleapi",
+  "MashapeKey": "$mashapekey",
+  "OsuApiKey": "$osu",
+  "CleverbotApiKey": "$cleverbot",
+  "TwitchClientId": "$twitchcid",
+  "LocationIqApiKey": "$locationiqapi",
+  "TimezoneDbApiKey": "$timedbapi",
+  "Db": null,
+  "TotalShards": 1
 }" | cat - >> credentials.json
 echo Credentials setup completed.
 sleep 5
