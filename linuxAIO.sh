@@ -1,4 +1,4 @@
-#tester
+#!/bin/sh
 echo ""
 echo "Welcome to NadekoBot. Downloading the latest installer..."
 root=$(pwd)
