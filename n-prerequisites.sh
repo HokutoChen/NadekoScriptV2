@@ -119,6 +119,7 @@ if [ "$OS" = "Ubuntu" ]; then
         
      export DOTNET_ROOT=/usr/share/dotnet-arm64
      export PATH=$PATH:/usr/share/dotnet-arm64
+     sudo rm dotnet-sdk-5.0.400-linux-arm64.tar.gz aspnetcore-runtime-5.0.9-linux-arm64.tar.gz
      cd
      
      echo "Installing Git and Redis"
