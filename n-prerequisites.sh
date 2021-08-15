@@ -104,18 +104,23 @@ if [ "$OS" = "Ubuntu" ]; then
      sudo apt-get upgrade
         
      echo "Installing dotnet"
+     echo "This installation will install the following dotnet versions"
+     echo "dotnet sdk - 5.0.400"
+     echo "dotnet aspnetcore runtime - 5.0.9"
+     
      cd /usr/share
-     mkdir dotnet-arm64
+     sudo mkdir dotnet-arm64
      cd /usr/share/dotnet-arm64
         
-     wget https://download.visualstudio.microsoft.com/download/pr/4d323232-ffcc-4c09-a043-a36b554c883e/096822e81dc29383b649cd015d1ff99a/dotnet-sdk-5.0.400-linux-arm64.tar.gz
-     wget https://download.visualstudio.microsoft.com/download/pr/0e3da9ad-b838-419a-8ad5-caaff159083f/484d306f2778f15519201178961372bc/aspnetcore-runtime-5.0.9-linux-arm64.tar.gz
-     tar zxf dotnet-sdk-5.0.400-linux-arm64.tar.gz
-     tar zxf aspnetcore-runtime-5.0.9-linux-arm64.tar.gz
+     sudo wget https://download.visualstudio.microsoft.com/download/pr/4d323232-ffcc-4c09-a043-a36b554c883e/096822e81dc29383b649cd015d1ff99a/dotnet-sdk-5.0.400-linux-arm64.tar.gz
+     sudo wget https://download.visualstudio.microsoft.com/download/pr/0e3da9ad-b838-419a-8ad5-caaff159083f/484d306f2778f15519201178961372bc/aspnetcore-runtime-5.0.9-linux-arm64.tar.gz
+     sudo tar zxf dotnet-sdk-5.0.400-linux-arm64.tar.gz
+     sudo tar zxf aspnetcore-runtime-5.0.9-linux-arm64.tar.gz
         
      export DOTNET_ROOT=/usr/share/dotnet-arm64
      export PATH=$PATH:/usr/share/dotnet-arm64
-        
+     cd
+     
      echo "Installing Git and Redis"
      sudo apt-get install git redis-server -y
         
