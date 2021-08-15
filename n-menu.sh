@@ -73,6 +73,7 @@ while [ $choice -eq 9 ]; do
 		echo "Invalid choice"
 		echo ""
 		choice=9
+		clear
 	fi
 done
 
