@@ -10,7 +10,7 @@ else
 	exit 1
 fi
 
-cd "$root/nadekobot/output"
+cd "$HOME/nadekobot/output"
 echo "Running NadekoBot. Please wait."
 dotnet run NadekoBot.dll
 echo "Done"
