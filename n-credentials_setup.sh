@@ -132,7 +132,6 @@ echo "{
 }" | cat - >> credentials.json
 echo "Credentials setup completed."
 sleep 5
-clear
 cd 
 rm $HOME/n-credentials_setup.sh
 exit 0
