@@ -24,7 +24,8 @@ echo ""
 echo "----------"
 echo ""
 
-echo "Please enter your bot token \n(It is not bot secret, it should be ~59 characters long.):"
+echo "Please enter your bot token"
+echo "(It is not bot secret, it should be ~59 characters long.):
 echo ""
 read token
 echo ""
@@ -33,7 +34,8 @@ echo ""
 echo "----------"
 echo ""
 
-echo "Please enter your own ID \n(Refer to the guide, it will be bot's owner ID.):"
+echo "Please enter your own ID"
+echo "(Refer to the guide, it will be bot's owner ID.):"
 echo ""
 read ownerid
 echo ""
@@ -42,7 +44,8 @@ echo ""
 echo "----------"
 echo ""
 
-echo "Please enter Google API key \n(Refer to the guide.):"
+echo "Please enter Google API key "
+echo "(Refer to the guide.):"
 echo ""
 read googleapi
 echo ""
@@ -51,34 +54,38 @@ echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Mashape Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
+echo -e "Please enter Mashape Key or Just Press [Enter Key] to skip. (optional)"
+echo "(Refer to the JSON Explanations guide):"
 echo ""
 read mashapekey
 echo ""
-echo "Saved \'$mashapekey'\ as your bot's Mashape Key.
+echo "Saved '$mashapekey' as your bot's Mashape Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter OSU API Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
+echo -e "Please enter OSU API Key or Just Press [Enter Key] to skip. (optional)"
+echo "(Refer to the JSON Explanations guide):"
 echo ""
 read osu
 echo ""
-echo "Saved \'$osu' \as your bot's OSU API Key.
+echo "Saved '$osu' as your bot's OSU API Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Cleverbot API Key or Just Press [Enter Key] to skip. (optional) \n Refer to the JSON Explanations guide:"
+echo -e "Please enter Cleverbot API Key or Just Press [Enter Key] to skip. (optional)"
+echo "(Refer to the JSON Explanations guide):"
 echo ""
 read cleverbot
 echo ""
-echo "Saved \'$cleverbot'\ as your bot's Cleverbot API Key.
+echo "Saved '$cleverbot' as your bot's Cleverbot API Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Twitch Client ID or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
+echo -e "Please enter Twitch Client ID or Just Press [Enter Key] to skip. (optional)"
+echo "(Refer to the JSON Explanations guide):"
 echo ""
 read twitchcid
 echo ""
@@ -87,7 +94,8 @@ echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Location IQ Api Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
+echo -e "Please enter Location IQ Api Key or Just Press [Enter Key] to skip. (optional)"
+echo "(Refer to the JSON Explanations guide):"
 echo ""
 read locationiqapi
 echo ""
@@ -96,7 +104,8 @@ echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Timezone DB Api Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
+echo -e "Please enter Timezone DB Api Key or Just Press [Enter Key] to skip. (optional)"
+echo "(Refer to the JSON Explanations guide):"
 echo ""
 read timedbapi
 echo ""
