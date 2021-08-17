@@ -1,5 +1,10 @@
 #tester
 echo "Running NadekoBot"
+echo ""
+echo "NadekoBot 1.9+"
+echo "Mirai was here."
+root=$(pwd)
+youtube-dl -U
 root=$(pwd)
 
 if hash dotnet 2>/dev/null
@@ -10,9 +15,12 @@ else
 	exit 1
 fi
 
-cd $HOME/nadekobot/output
+cd $HOME/NadekoBot
+dotnet restore
+dotnet build -c Release
+cd "$root/NadekoBot/src/NadekoBot"
 echo "Running NadekoBot. Please wait."
-dotnet run NadekoBot.dll
+dotnet run -c Release
 echo "Done"
 
 cd 
