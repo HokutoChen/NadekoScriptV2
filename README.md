@@ -1,4 +1,4 @@
-## Setting up NadekoBot on Pi 3/4
+## Setting up NadekoBot on Pi 3/4 For current v2 Nadeko
 
 | Table of Contents                                   |
 | :-------------------------------------------------- |
