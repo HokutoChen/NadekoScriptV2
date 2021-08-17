@@ -12,7 +12,7 @@ while true; do
   esac
 done
 
-cd $HOME/nadekobot/src/NadekoBot
+cd $HOME/NadekoBot/src/NadekoBot
 mv credentials.json credentials.json.old
 
 echo Please enter your bot client ID:
