@@ -19,118 +19,109 @@ echo Please enter your bot client ID:
 echo ""
 read clientid
 echo ""
-echo "Alright saved '$clientid' as your client ID."
+echo Alright saved \'$clientid\' as your client ID.
 echo ""
 echo "----------"
 echo ""
 
-echo "Please enter your bot token"
-echo "(It is not bot secret, it should be ~59 characters long.):
+echo Please enter your bot token \(It is not bot secret, it should be ~59 characters long.\):
 echo ""
 read token
 echo ""
-echo "Saved '$token' as your bot's token."
+echo Alright saved \'$token\' as your bot\'s token.
 echo ""
 echo "----------"
 echo ""
 
-echo "Please enter your own ID"
-echo "(Refer to the guide, it will be bot's owner ID.):"
+echo Please enter your own ID \(Refer to the guide, it will be bot\'s owner ID.\):
 echo ""
 read ownerid
 echo ""
-echo "Saved '$ownerid' as owner's ID."
+echo Alright saved \'$ownerid\' as owner\'s ID.
 echo ""
 echo "----------"
 echo ""
 
-echo "Please enter Google API key "
-echo "(Refer to the guide.):"
+echo Please enter Google API key \(Refer to the guide.\):
 echo ""
 read googleapi
 echo ""
-echo "Saved '$googleapi' as your bot's Google API Key."
+echo Alright saved \'$googleapi\' as your bot\'s Google API Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Mashape Key or Just Press [Enter Key] to skip. (optional)"
-echo "(Refer to the JSON Explanations guide):"
+echo -e "Please enter Mashape Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
 echo ""
 read mashapekey
 echo ""
-echo "Saved '$mashapekey' as your bot's Mashape Key.
+echo Alright saved \'$mashapekey\' as your bot\'s Mashape Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter OSU API Key or Just Press [Enter Key] to skip. (optional)"
-echo "(Refer to the JSON Explanations guide):"
+echo -e "Please enter OSU API Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
 echo ""
 read osu
 echo ""
-echo "Saved '$osu' as your bot's OSU API Key.
+echo Alright saved \'$osu\' as your bot\'s OSU API Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Cleverbot API Key or Just Press [Enter Key] to skip. (optional)"
-echo "(Refer to the JSON Explanations guide):"
+echo -e "Please enter Cleverbot API Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
 echo ""
 read cleverbot
 echo ""
-echo "Saved '$cleverbot' as your bot's Cleverbot API Key.
+echo Alright saved \'$cleverbot\' as your bot\'s Cleverbot API Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Twitch Client ID or Just Press [Enter Key] to skip. (optional)"
-echo "(Refer to the JSON Explanations guide):"
+echo -e "Please enter Twitch Client ID or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
 echo ""
 read twitchcid
 echo ""
-echo "Saved '$twitchcid' as your bot's Twitch Client ID.
+echo Alright saved \'$twitchcid\' as your bot\'s Twitch Client ID.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Location IQ Api Key or Just Press [Enter Key] to skip. (optional)"
-echo "(Refer to the JSON Explanations guide):"
+echo -e "Please enter Location IQ Api Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
 echo ""
 read locationiqapi
 echo ""
-echo "Saved '$locationiqapi' as your bot's Location IQ API Key.
+echo Alright saved \'$locationiqapi\' as your bot\'s Location IQ API Key.
 echo ""
 echo "----------"
 echo ""
 
-echo -e "Please enter Timezone DB Api Key or Just Press [Enter Key] to skip. (optional)"
-echo "(Refer to the JSON Explanations guide):"
+echo -e "Please enter Timezone DB Api Key or Just Press [Enter Key] to skip. (optional) \nRefer to the JSON Explanations guide:"
 echo ""
 read timedbapi
 echo ""
-echo "Saved '$timedbapi' as your bot's Timezone DB API Key.
+echo Alright saved \'$timedbapi\' as your bot\'s Timezone DB API Key.
 echo ""
 echo "----------"
 echo ""
 
 echo "{
-  "ClientId": "$clientid",
-  "Token": "$token",
-  "OwnerIds": [
+  \"ClientId\": $clientid,
+  \"Token\": \"$token\",
+  \"OwnerIds\": [
     $ownerid
   ],
-  "GoogleApiKey": "$googleapi",
-  "MashapeKey": "$mashapekey",
-  "OsuApiKey": "$osu",
-  "CleverbotApiKey": "$cleverbot",
-  "TwitchClientId": "$twitchcid",
-  "LocationIqApiKey": "$locationiqapi",
-  "TimezoneDbApiKey": "$timedbapi",
-  "Db": null,
-  "TotalShards": 1
+  \"GoogleApiKey\": \"$googleapi\",
+  \"MashapeKey\": \"$mashapekey\",
+  \"OsuApiKey\": \"$osu\",
+  \"CleverbotApiKey\": \"$cleverbot\",
+  \"TwitchClientId\": \"$twitchcid\",
+  \"LocationIqApiKey\": \"$locationiqapi\",
+  \"TimezoneDbApiKey\": \"$timedbapi\",
+  \"Db\": null,
+  \"TotalShards\": 1
 }" | cat - >> credentials.json
-echo "Credentials setup completed."
+echo Credentials setup completted."
 sleep 5
 cd 
 rm $HOME/n-credentials_setup.sh
