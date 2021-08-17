@@ -24,7 +24,7 @@ It is recommended that you use **Ubuntu 16.04**, as there have been nearly no pr
 - Use the following command to get and run the **`linuxAIO.sh`** installer
     - (PS: **Do Not** rename the **`linuxAIO.sh`** file)
 
-`cd ~ && wget -N https://github.com/HokutoChen/NadekoScriptv2/raw/main/linuxAIO.sh && bash linuxAIO.sh`
+`cd ~ && wget -N https://github.com/HokutoChen/NadekoScriptV2/raw/main/linuxAIO.sh && bash linuxAIO.sh`
 
 You should see the main menu with the following options:
 
