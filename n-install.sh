@@ -1,58 +1,86 @@
 #!/bin/sh
+echo ""
+echo "NadekoBot Installer started."
+
+if hash git 1>/dev/null 2>&1
+then
+    echo ""
+    echo "Git Installed."
+else
+    echo ""    
+    echo "Git is not installed. Please install Git."
+    exit 1
+fi
+
+
+if hash dotnet 1>/dev/null 2>&1
+then
+    echo ""
+    echo "Dotnet installed."
+else
+    echo ""
+    echo "Dotnet is not installed. Please install dotnet."
+    exit 1
+fi
+
 root=$(pwd)
+tempdir=NadekoInstall_Temp
 
-# Legend:
-# (A) - Database related operations
-# (B) - Aliases related operations
-# (C) - Strings related operations
+rm -r "$tempdir" 1>/dev/null 2>&1
+mkdir "$tempdir"
+cd "$tempdir"
 
-# remove old backup
-rm -rf nadekobot_old 1>/dev/null 2>&1
+echo ""
+echo "Downloading NadekoBot, please wait."
+git clone -b 1.9 --recursive --depth 1 https://gitlab.com/Kwoth/NadekoBot
+echo ""
+echo "NadekoBot downloaded."
 
-# make a new backup
-mv -fT nadekobot nadekobot_old 1>/dev/null 2>&1
+echo ""
+echo "Downloading Nadeko dependencies"
+cd "$root/$tempdir/NadekoBot"
+dotnet restore
+echo ""
+echo "Download done"
 
-# clone new version
-git clone -b v3 --recursive --depth 1 https://gitlab.com/Kwoth/nadekobot
-cd nadekobot
+echo ""
+echo "Building NadekoBot"
+dotnet build --configuration Release
+echo ""
+echo "Building done. Moving Nadeko"
 
-# build
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-dotnet build src/NadekoBot/NadekoBot.csproj -c Release -o output/
-
-# go back
 cd "$root"
 
-# move creds from old to new
-mv -f nadekobot_old/output/creds.yml nadekobot/output/creds.yml 1>/dev/null 2>&1
+if [ ! -d NadekoBot ]
+then
+    mv "$tempdir"/NadekoBot NadekoBot
+else
+    rm -rf NadekoBot_old 1>/dev/null 2>&1
+    mv -fT NadekoBot NadekoBot_old 1>/dev/null 2>&1
+    mv "$tempdir"/NadekoBot NadekoBot
+    cp -f "$root/NadekoBot_old/src/NadekoBot/credentials.json" "$root/NadekoBot/src/NadekoBot/credentials.json" 1>/dev/null 2>&1
+    echo ""
+    echo "credentials.json copied to the new version"
+    cp -RT "$root/NadekoBot_old/src/NadekoBot/bin/" "$root/NadekoBot/src/NadekoBot/bin/" 1>/dev/null 2>&1
+    cp -RT "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.1/data/NadekoBot.db" 1>/dev/null 2>&1
+	cp -RT "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.1/data/NadekoBot.db" 1>/dev/null 2>&1
+    cp -RT "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.1/data/NadekoBot.db" 1>/dev/null 2>&1
+    mv -f "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.0/data/NadekoBot_old.db" 1>/dev/null 2>&1
+	mv -f "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp1.1/data/NadekoBot_old.db" 1>/dev/null 2>&1
+    mv -f "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.0/data/NadekoBot.db" "$root/NadekoBot/src/NadekoBot/bin/Release/netcoreapp2.0/data/NadekoBot_old.db" 1>/dev/null 2>&1
+    echo ""
+	mv -f "$root/NadekoBot_old/src/NadekoBot/data/aliases.yml" "$root/NadekoBot_old/src/NadekoBot/data/aliases_old.yml" 1>/dev/null 2>&1
+	rm -rf "$root/NadekoBot_old/src/NadekoBot/data/strings_old" 1>/dev/null 2>&1
+	mv -f "$root/NadekoBot_old/src/NadekoBot/data/strings" "$root/NadekoBot_old/src/NadekoBot/data/strings_old" 1>/dev/null 2>&1
+    echo "Database copied to the new version"
+    cp -RT "$root/NadekoBot_old/src/NadekoBot/data/" "$root/NadekoBot/src/NadekoBot/data/" 1>/dev/null 2>&1
+    echo ""
+    echo "Other data copied to the new version"
+fi
 
-# on update, strings will be new version, user will have to manually re-add his strings after each update
-# as updates may cause big number of strings to become obsolete, changed, etc
-# however, old user's strings will be backed up to strings_old
-
-# (C) backup new strings to reverse rewrite
-rm -rf nadekobot/output/data/strings_old 1>/dev/null 2>&1 # remove old backup preemptively to avoid copying what will get overwritten with new backup
-mv -f nadekobot/output/data/strings nadekobot/output/data/strings_new 1>/dev/null 2>&1
-
-# (B) backup new aliases to reverse rewrite
-rm -rf nadekobot/output/data/aliases_old.yml 1>/dev/null 2>&1
-mv -f nadekobot/output/data/aliases.yml nadekobot/output/data/aliases_new.yml 1>/dev/null 2>&1
-
-# (A) move old database
-mv -f nadekobot_old/output/data/NadekoBot.db nadekobot/output/data/NadekoBot.db 1>/dev/null 2>&1
-
-# move old data folder contents (and overwrite)
-cp -RT nadekobot_old/output/data/ nadekobot/output/data/ 1>/dev/null 2>&1
-
-# (B) backup old aliases
-mv -f nadekobot/output/data/aliases.yml nadekobot/output/data/aliases_old.yml 1>/dev/null 2>&1
-# (B) restore new aliases
-mv -f nadekobot/output/data/aliases_new.yml nadekobot/output/data/aliases.yml 1>/dev/null 2>&1
-
-# (C) backup old strings
-mv -rf nadekobot/output/data/strings nadekobot/output/data/strings_old 1>/dev/null 2>&1
-# (C) restore new strings
-mv -rf nadekobot/output/data/strings_new nadekobot/output/data/strings 1>/dev/null 2>&1
+rm -r "$tempdir"
+echo ""
+echo "Installation Complete."
 
 cd "$root"
 rm "$root/n-install.sh"
