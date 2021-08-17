@@ -1,4 +1,4 @@
-## Setting up NadekoBot on Linux
+## Setting up NadekoBot on Pi 3/4
 
 | Table of Contents                                   |
 | :-------------------------------------------------- |
