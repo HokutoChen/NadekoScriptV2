@@ -7,7 +7,7 @@ root=$(pwd)
 echo ""
 choice=9
 
-base_url="https://github.com/HokutoChen/NadekoScript/raw/main"
+base_url="https://github.com/HokutoChen/NadekoScriptV2/raw/main"
 
 script_menu="n-menu.sh"
 script_prerequisites="n-prerequisites.sh"
