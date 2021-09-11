@@ -179,5 +179,5 @@ read -n 1 -s -p "Press any key to continue..."
 sleep 2
 
 cd 
-rm $HOME/n-prerequisites.sh
+rm $root/n-prerequisites.sh
 exit 0
