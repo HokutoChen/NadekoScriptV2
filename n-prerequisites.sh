@@ -93,7 +93,7 @@ fi
 
 if [ "$supported" = 0 ]; then
     echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
-    printf "\e[1;31mContact NadekoBot's support on Discord with screenshot.\e[0m\n"
+    printf "\e[1;31mContact Hoku on NadekoBot's support on Discord with screenshot.\e[0m\n"
     rm n-prereq.sh
     exit 1
 fi
