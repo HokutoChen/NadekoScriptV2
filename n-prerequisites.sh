@@ -94,13 +94,13 @@ fi
 if [ "$supported" = 0 ]; then
     echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
     printf "\e[1;31mContact Hoku on NadekoBot's support on Discord with screenshot.\e[0m\n"
-    rm n-prereq.sh
+    rm n-prerequisites.sh
     exit 1
 fi
 
 if [ "$OS" = "Linux" ]; then
     echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact NadekoBot's support on Discord with screenshot."
-    rm n-prereq.sh
+    rm n-prerequisites.sh
     exit 1
 fi
 
@@ -111,7 +111,7 @@ while true; do
     read -p "[y/n]: " yn
     case $yn in
         [Yy]* ) clear; echo Running NadekoBot Auto-Installer; sleep 2; break;;
-        [Nn]* ) echo Quitting...; rm n-prereq.sh && exit;;
+        [Nn]* ) echo Quitting...; rm n-prerequisites.sh && exit;;
         * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 done
@@ -127,7 +127,7 @@ while true; do
     read -p "[y/n]: " yn
     case $yn in
         [Yy]* ) clear; echo Running NadekoBot Auto-Installer; sleep 2; break;;
-        [Nn]* ) echo Quitting...; rm n-prereq.sh && exit;;
+        [Nn]* ) echo Quitting...; rm n-prerequisites.sh && exit;;
         * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 done
